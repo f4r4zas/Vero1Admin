@@ -48,7 +48,7 @@
             <!-- Main -->
             <li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Main</div> <i class="icon-menu" title="Main"></i></li>
             <li class="nav-item">
-                <a href="index.html" class="nav-link active">
+                <a href="#" class="nav-link active">
                     <i class="icon-home4"></i>
                     <span>
                         Dashboard
@@ -57,7 +57,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="index.html" class="nav-link">
+                <a href="#" class="nav-link">
                     <i class="icon-home4"></i>
                     <span>
                         User Profile
@@ -66,7 +66,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="index.html" class="nav-link">
+                <a href="#" class="nav-link">
                     <i class="icon-home4"></i>
                     <span>
                         Pages
@@ -75,7 +75,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="index.html" class="nav-link">
+                <a href="#" class="nav-link">
                     <i class="icon-home4"></i>
                     <span>
                         Riders
@@ -84,7 +84,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="index.html" class="nav-link">
+                <a href="#" class="nav-link">
                     <i class="icon-home4"></i>
                     <span>
                         Drivers
@@ -93,7 +93,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="index.html" class="nav-link">
+                <a href="#" class="nav-link">
                     <i class="icon-home4"></i>
                     <span>
                         Disputes
@@ -102,7 +102,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="index.html" class="nav-link">
+                <a href="#" class="nav-link">
                     <i class="icon-home4"></i>
                     <span>
                         Purchase Services
@@ -111,7 +111,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="index.html" class="nav-link">
+                <a href="#" class="nav-link">
                     <i class="icon-home4"></i>
                     <span>
                         Create Promotions
@@ -133,7 +133,7 @@
                 <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Layouts</span></a>
 
                 <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                    <li class="nav-item"><a href="index.html" class="nav-link active">Default layout</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link active">Default layout</a></li>
                     <li class="nav-item"><a href="../../../../layout_2/LTR/default/full/index.html" class="nav-link">Layout 2</a></li>
                     <li class="nav-item"><a href="../../../../layout_3/LTR/default/full/index.html" class="nav-link">Layout 3</a></li>
                     <li class="nav-item"><a href="../../../../layout_4/LTR/default/full/index.html" class="nav-link">Layout 4</a></li>
@@ -145,7 +145,7 @@
                 <a href="#" class="nav-link"><i class="icon-color-sampler"></i> <span>Themes</span></a>
 
                 <ul class="nav nav-group-sub" data-submenu-title="Themes">
-                    <li class="nav-item"><a href="index.html" class="nav-link active">Default</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link active">Default</a></li>
                     <li class="nav-item"><a href="../../../LTR/material/full/index.html" class="nav-link">Material</a></li>
                     <li class="nav-item"><a href="../../../LTR/dark/full/index.html" class="nav-link">Dark</a></li>
                     <li class="nav-item"><a href="../../../LTR/clean/full/index.html" class="nav-link disabled">Clean <span class="badge bg-transparent align-self-center ml-auto">Coming soon</span></a></li>
