@@ -88,9 +88,6 @@
                     </a>
                 </li>
 
-
-            @endif
-
             <li class="nav-item">
                 <a href="{{ URL::to('admin/pages') }}" class="nav-link @if(request()->path() == 'admin/pages')
                     active
@@ -167,7 +164,7 @@
                 </span>
                 </a>
             </li>            
-
+        @endif
 <!--
             <li class="nav-item nav-item-submenu">
                 <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Layouts</span></a>
