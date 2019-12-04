@@ -13,7 +13,6 @@
 //use Auth;
 //Check commit
 
-\Log::info('auth check'.Auth::check());
 Route::get('/', function () {
     return view('welcome');
 });

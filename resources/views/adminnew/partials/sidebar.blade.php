@@ -47,26 +47,54 @@
 
             <!-- Main -->
             <li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Main</div> <i class="icon-menu" title="Main"></i></li>
-            <li class="nav-item">
-                <a href="#" class="nav-link active">
-                    <i class="icon-home4"></i>
+            
+            @if(isset(Auth::user()->user_type) && Auth::user()->user_type === 'driver')
+
+                <li class="nav-item">
+                    <a href="{{ URL::to('/driver') }}" class="nav-link @if(request()->path() == 'driver') active @endif">
+                        <i class="icon-home4"></i>
+                        <span>
+                            Dashboard
+                        </span>
+                    </a>
+                </li>
+
+                <li class="nav-item" >
+                    <a href="{{ URL::to('driver/configs') }}" class="nav-link @if(request()->path() == 'driver') active @endif">
+                    <i class="icon-width"></i> 
                     <span>
-                        Dashboard
+                        Settings
                     </span>
-                </a>
-            </li>
+                    </a>
+                </li>
+
+            @else
+
+                <li class="nav-item">
+                    <a href="{{ URL::to('/driver') }}" class="nav-link @if(request()->path() == 'admin') active @endif">
+                        <i class="icon-home4"></i>
+                        <span>
+                            Dashboard
+                        </span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ URL::to('admin/users') }}" class="nav-link @if(request()->path() == 'admin/users') active @endif">
+                        <i class="icon-home4"></i>
+                        <span>
+                            User Profile
+                        </span>
+                    </a>
+                </li>
+
+
+            @endif
 
             <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="icon-home4"></i>
-                    <span>
-                        User Profile
-                    </span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ URL::to('admin/pages') }}" class="nav-link @if(request()->path() == 'admin/pages')
+                    active
+                    @endif>">
                     <i class="icon-home4"></i>
                     <span>
                         Pages
@@ -75,7 +103,9 @@
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ URL::to('admin/riders') }}" class="nav-link @if(request()->path() == 'admin/riders')
+                    active
+                    @endif">
                     <i class="icon-home4"></i>
                     <span>
                         Riders
@@ -84,7 +114,9 @@
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ URL::to('admin/drivers') }}" class="nav-link @if(request()->path() == 'admin/drivers')
+                    active
+                    @endif">
                     <i class="icon-home4"></i>
                     <span>
                         Drivers
@@ -93,7 +125,9 @@
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ URL::to('admin/dispute') }}" class="nav-link @if(request()->path() == 'admin/dispute')
+                    active
+                    @endif">
                     <i class="icon-home4"></i>
                     <span>
                         Disputes
@@ -102,7 +136,9 @@
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ URL::to('admin/purchases') }}" class="nav-link @if(request()->path() == 'admin/purchases')
+                    active
+                    @endif">
                     <i class="icon-home4"></i>
                     <span>
                         Purchase Services
@@ -111,22 +147,26 @@
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ URL::to('admin/promo-codes') }}" class="nav-link @if(request()->path() == 'admin/promo-codes')
+                    active
+                    @endif">
                     <i class="icon-home4"></i>
                     <span>
                         Create Promotions
                     </span>
                 </a>
             </li>
-                                                                      
-            <li class="nav-item">
-                <a href="../../../RTL/default/full/index.html" class="nav-link">
-                   <i class="icon-width"></i> 
-                   <span>
-                     Settings
-                   </span>
+
+            <li class="nav-item" >
+                <a href="{{ URL::to('admin/configs') }}" class="nav-link @if(request()->path() == 'admin/configs')
+                    active
+                    @endif">
+                <i class="icon-width"></i> 
+                <span>
+                    Settings
+                </span>
                 </a>
-            </li>
+            </li>            
 
 <!--
             <li class="nav-item nav-item-submenu">
