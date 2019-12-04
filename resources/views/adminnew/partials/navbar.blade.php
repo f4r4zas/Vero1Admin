@@ -295,7 +295,7 @@
 				<li class="nav-item dropdown dropdown-user">
 					<a href="#" class="navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown">
 						<img src="{{ asset('public/assets/global_assets/images/placeholders/placeholder.jpg') }}" class="rounded-circle mr-2" height="34" alt="">
-						<span>{{ isset(Auth::user()->first_name)?Auth::user()->first_name:'' }} ( {{ isset(Auth::user()->user_type)?Auth::user()->user_type:'' }} )</span>
+						<span>{{ isset(Auth::user()->first_name)?Auth::user()->first_name:'' }}</span>
 					</a>
 
 					<div class="dropdown-menu dropdown-menu-right">

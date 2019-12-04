@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="media-body">
-                    <div class="media-title font-weight-semibold">Admin</div>
+                    <div class="media-title font-weight-semibold">{{ isset(Auth::user()->first_name)?Auth::user()->first_name:'' }} ({{ isset(Auth::user()->user_type)?Auth::user()->user_type:'' }})</div>
                     <div class="font-size-xs opacity-50">
                         <!-- <i class="icon-pin font-size-sm"></i> &nbsp;Santa Ana, CA -->
                     </div>
