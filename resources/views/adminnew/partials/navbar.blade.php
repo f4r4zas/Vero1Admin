@@ -1,7 +1,7 @@
 	<!-- Main navbar -->
 	<div class="navbar navbar-expand-md navbar-dark">
 		<div class="navbar-brand">
-			<a href="index.html" class="d-inline-block">
+			<a href="{{env('APP_URL')}}" class="d-inline-block">
 				<img src="http://184.72.97.15/vero/images/ver-logo.png" alt="">
 			</a>
 		</div>

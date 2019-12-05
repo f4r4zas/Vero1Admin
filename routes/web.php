@@ -118,7 +118,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
   Route::post('register', 'Auth\RegisterController@register');
 
-	Route::get('/', 'admin\Pages@index');
+	Route::get('/', 'admin\Pages@index')->name('dashboard');
 
 	Route::get('/users', 'admin\Pages@users');
 

@@ -25,7 +25,9 @@
                                         <li><a href="{{ URL::to("/pricing") }}">Pricing</a></li>
                                         <li><a href="{{ URL::to("/about-us") }}">About us</a></li>
                                         <li><a href="{{ URL::to("/service") }}">User Services</a></li>
-                                        <li><a href="{{ URL::to("/driver-register") }}">Driver Signup</a></li>
+                                        @if(!Auth::check())
+                                         <li><a href="{{ URL::to("/driver-register") }}">Driver Signup</a></li>
+                                        @endif
                                     </ul>
                                 </div>
                             </div>
@@ -34,7 +36,11 @@
                 </div>
                 <div class="col-sm-2">
                     <div class="login-wrap">
-                        <a href="{{ URL::to("/login") }}">login</a>
+                        @if(Auth::check())                        
+                            <a href="{{ route('dashboard') }}">{{Auth::user()->first_name}}</a>
+                        @else 
+                            <a href="{{ URL::to("/login") }}">Login</a>  
+                        @endif
                     </div>
                 </div>
             </div><!--row-->
