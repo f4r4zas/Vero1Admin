@@ -182,7 +182,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 /* ================================= Driver ========================================== */
 
-Route::group(['prefix' => 'driver', 'middleware' => 'auth:user_driver'], function(){
+Route::group(['prefix' => 'driver', 'middleware' => 'auth'], function(){
   
     Route::get('/', 'driver\DriverController@index');
     
@@ -190,7 +190,7 @@ Route::group(['prefix' => 'driver', 'middleware' => 'auth:user_driver'], functio
     
     Route::get('/change-password', 'driver\DriverController@changePassword');
     
-    Route::post('/change-password', 'driver\DriverController@changePassword');    
+    Route::post('/change-password', 'driver\DriverController@changePassword')->name('driver-changepassword');    
     
     Route::get('/stripe', 'driver\DriverController@stripeConnect');    
 

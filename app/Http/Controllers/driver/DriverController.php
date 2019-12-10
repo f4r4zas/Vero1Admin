@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Input;
 use Hash;
 use Illuminate\Support\Facades\Redirect;
 use App\Users;
+use App\Http\Requests\changePassword;
 
 class DriverController extends Controller
 {
@@ -19,13 +20,17 @@ class DriverController extends Controller
     }
     
     public function configs()
-    {
-        return view("driver.configs");
+    {   
+        return view('adminnew.driver.configs');
+        //return view("driver.configs");
     }
     
-    public function changePassword(Request $request)
+    public function changePassword(changePassword $request)
     {
-        
+        dd($request->input());
+        $validated = $request->validated();
+        dd($validated);
+
         if($request->input('current_password') !== null && $request->input('password') !== null && $request->input('password_confirmation') !== null )
         {
             
