@@ -271,6 +271,9 @@ class UserDetails extends Controller
             {
               $adminConfigs = AdminConfigs::orderBy('_id')->get();
 
+              //Flash Session for Success
+              \Session::flash('success', true);
+
               return view('adminnew.admin.configs')->with('data', $adminConfigs)->with('success', true);
             }
           }
