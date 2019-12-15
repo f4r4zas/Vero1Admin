@@ -77,5 +77,10 @@ class Commons extends Controller
 
     }
 
+    //Convert Percent to Decimal
+    public function convertPercentToDecimal($value){
+        return floatval("60") / 100.00;
+    }
+
 }
 	?>

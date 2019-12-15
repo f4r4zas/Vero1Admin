@@ -1,7 +1,10 @@
 {
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
@@ -28,8 +31,7 @@
         ],
         "psr-4": {
             "App\\": "app/",
-
-			  "Jenssegers\\Mongodb\\": "fixes/Jenssegers/Mongodb/"
+            "Jenssegers\\Mongodb\\": "fixes/Jenssegers/Mongodb/"
         }
     },
     "autoload-dev": {
@@ -39,8 +41,7 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": [
-            ]
+            "dont-discover": []
         }
     },
     "scripts": {

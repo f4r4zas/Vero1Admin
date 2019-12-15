@@ -16,7 +16,8 @@ class DriverController extends Controller
 {
     public function index()
     {
-        return view("admin.dashboard");
+        //return view("admin.dashboard");
+        return view("adminnew.index");        
     }
     
     public function configs()

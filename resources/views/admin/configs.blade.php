@@ -1,9 +1,6 @@
 @include("admin.header")
 <div class="wrapper">
     @include("admin.menu")
-
-
-
 <div class="main-panel">
     <nav class="navbar navbar-default">
         <div class="container-fluid">

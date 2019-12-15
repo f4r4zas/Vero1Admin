@@ -60,7 +60,7 @@
                 </li>
 
                 <li class="nav-item" >
-                    <a href="{{ URL::to('driver/configs') }}" class="nav-link @if(request()->path() == 'driver') active @endif">
+                    <a href="{{ URL::to('driver/configs') }}" class="nav-link @if(request()->path() == 'driver/configs') active @endif">
                     <i class="icon-width"></i> 
                     <span>
                         Settings

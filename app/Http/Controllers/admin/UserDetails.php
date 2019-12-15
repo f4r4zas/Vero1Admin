@@ -18,6 +18,7 @@ use MongoDB\BSON\ObjectId;
 use Validator;
 use Redirect;
 use App\Disputes;
+use Helper;
 
 class UserDetails extends Controller
 {
@@ -177,7 +178,9 @@ class UserDetails extends Controller
     {
       $adminConfigs = AdminConfigs::orderBy('_id')->get();
 
-      return view('admin.configs')->with('data', $adminConfigs);
+      return view('adminnew.admin.configs')->with('data', $adminConfigs);
+
+      //return view('admin.configs')->with('data', $adminConfigs);
     }
 
     public function updateSettings(Request $request)
@@ -193,15 +196,17 @@ class UserDetails extends Controller
             'percent_cost_gallon'           => 'required|numeric|min:0',
             'percent_cost_minutes'          => 'required|numeric|min:0',
             'percent_per_gallon'            => 'required|numeric|min:0',
-            'profit_percent_bronze_driver'  => 'required|numeric|min:0|max:1',
-            'profit_percent_bronze_admin'   => 'required|numeric|min:0|max:1',
-            'profit_percent_silver_driver'  => 'required|numeric|min:0|max:1',
-            'profit_percent_silver_admin'   => 'required|numeric|min:0|max:1',
-            'profit_percent_gold_driver'    => 'required|numeric|min:0|max:1',
-            'profit_percent_gold_driver'    => 'required|numeric|min:0|max:1',
+            'profit_percent_bronze_driver'  => 'required|numeric|min:0|max:100',
+            'profit_percent_bronze_admin'   => 'required|numeric|min:0|max:100',
+            'profit_percent_silver_driver'  => 'required|numeric|min:0|max:100',
+            'profit_percent_silver_admin'   => 'required|numeric|min:0|max:100',
+            'profit_percent_gold_driver'    => 'required|numeric|min:0|max:100',
+            'profit_percent_gold_admin'     => 'required|numeric|min:0|max:100',
           ];
 
-          $validator = Validator::make(Input::all(), $rules);
+          $userInput = Input::all();           
+
+          $validator = Validator::make($requestData, $rules);
 
           if($validator->fails())
           {
@@ -210,24 +215,48 @@ class UserDetails extends Controller
           }
           else
           {
+
+            /* Modifying Input to be saved in the database.. */ 
+
+            //Converting Bronze Profit of Driver to double..
+            if( !empty($userInput['profit_percent_bronze_driver']) ){
+              $userInput['profit_percent_bronze_driver'] = Helper::convertPercentToDecimal( $userInput['profit_percent_bronze_driver'] );   
+              $userInput['profit_percent_bronze_admin'] = Helper::convertPercentToDecimal( $userInput['profit_percent_bronze_admin'] );   
+
+            }
+            
+            //Converting Silver Profit of Driver to double..
+            if( !empty($userInput['profit_percent_silver_driver']) ){
+              $userInput['profit_percent_silver_driver'] = Helper::convertPercentToDecimal( $userInput['profit_percent_silver_driver'] );   
+              $userInput['profit_percent_silver_admin'] = Helper::convertPercentToDecimal( $userInput['profit_percent_silver_admin'] );   
+
+            }
+            
+            //Converting Gold Profit of Driver to double..
+            if( !empty($userInput['profit_percent_gold_driver']) ){
+              $userInput['profit_percent_gold_driver'] = Helper::convertPercentToDecimal( $userInput['profit_percent_gold_driver'] );   
+              $userInput['profit_percent_gold_admin'] = Helper::convertPercentToDecimal( $userInput['profit_percent_gold_admin'] );   
+            
+            }       
+
             $updateId = $adminConfigs[0]->_id;
 
             $data = [
-                      'percent_cost_gallon' => $requestData['percent_cost_gallon'],
-                      'percent_cost_minutes' => $requestData['percent_cost_minutes'],
-                      'cost_per_gallon' => $requestData['percent_per_gallon'],
+                      'percent_cost_gallon' => $userInput['percent_cost_gallon'],
+                      'percent_cost_minutes' => $userInput['percent_cost_minutes'],
+                      'cost_per_gallon' => $userInput['percent_per_gallon'],
                       'profit_percent' => [
                           'bronze' => [
-                                        'driver'=> $requestData['profit_percent_bronze_driver'],
-                                        'admin' => $requestData['profit_percent_bronze_admin']
+                                        'driver'=> $userInput['profit_percent_bronze_driver'],
+                                        'admin' => $userInput['profit_percent_bronze_admin']
                                       ],
                           'silver' => [
-                                        'driver'=> $requestData['profit_percent_silver_driver'],
-                                        'admin' => $requestData['profit_percent_silver_admin']
+                                        'driver'=> $userInput['profit_percent_silver_driver'],
+                                        'admin' => $userInput['profit_percent_silver_admin']
                                       ],
                           'gold' => [
-                                        'driver'=> $requestData['profit_percent_gold_driver'],
-                                        'admin' => $requestData['profit_percent_gold_admin']
+                                        'driver'=> $userInput['profit_percent_gold_driver'],
+                                        'admin' => $userInput['profit_percent_gold_admin']
                                       ],
                       ]
                     ];
@@ -242,7 +271,7 @@ class UserDetails extends Controller
             {
               $adminConfigs = AdminConfigs::orderBy('_id')->get();
 
-              return view('admin.configs')->with('data', $adminConfigs);
+              return view('adminnew.admin.configs')->with('data', $adminConfigs)->with('success', true);
             }
           }
 
